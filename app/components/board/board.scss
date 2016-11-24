@@ -1,0 +1,46 @@
+.board-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-row {
+  margin: 5px 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .board-row-item {
+    display: inline-block;
+    margin: 0 5px;
+    width: 80px;
+    height: 80px;
+    background-color: #486773;
+    opacity: 0.25;
+    transition: opacity 250ms ease-in-out;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.selected {
+      opacity: 1;
+    }
+  
+  }
+
+}
