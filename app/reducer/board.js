@@ -1,27 +1,22 @@
 import _ from 'lodash'
 
 import {
-  SELECT_PIECE
+  SET_BOARD_PATTERN,
+  ENABLE_BOARD_EDITING,
+  DISABLE_BOARD_EDITING
 } from '../constants/actions.js'
 
-const pattern = [
-  [true, true, false, true, false],
-  [false, false, true, false, true],
-  [true, false, false, false, false],
-  [true, true, false, false, true],
-  [false, false, true, false, false]
-]
+import { generatePattern } from '../utilities';
 
-const board = (state = { pattern }, action) => {
+const board = (state = { isEditable: false }, action) => {
 
   switch (action.type) {
-    case SELECT_PIECE: 
-      const pattern = _.clone(state.pattern)
-      const selectedRow = action.payload.row
-      const selectedColumn = action.payload.column
-      const currentPieceValue = pattern[selectedRow][selectedColumn]
-      pattern[selectedRow][selectedColumn] = !currentPieceValue
-      return Object.assign({}, state, { pattern })
+    case SET_BOARD_PATTERN:
+      return Object.assign({}, state, { pattern: action.payload.pattern })
+    case ENABLE_BOARD_EDITING:
+      return Object.assign({}, state, { isEditable: true })
+    case DISABLE_BOARD_EDITING:
+      return Object.assign({}, state, { isEditable: false })
     default:
       return state;
   }
