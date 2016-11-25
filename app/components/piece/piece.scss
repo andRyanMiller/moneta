@@ -1,0 +1,22 @@
+.piece {
+  display: inline-block;
+  margin: 0 5px;
+  width: 80px;
+  height: 80px;
+  background-color: #486773;
+  opacity: 0.25;
+  transition: opacity 250ms ease-in-out;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &.selected {
+    opacity: 1;
+  }
+
+}

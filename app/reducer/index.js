@@ -1,7 +1,8 @@
-import * as Redux from 'redux';
+import { combineReducers } from 'redux';
 
-import reducer from '../reducer';
+import app from './app';
+import board from './board';
 
-const store = Redux.createStore(reducer);
+const reducer = combineReducers({ app, board });
 
-export default store;
+export default reducer;

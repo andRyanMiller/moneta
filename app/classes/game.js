@@ -1,5 +1,5 @@
 class Game {
-  constructor(difficulty, options) {
+  constructor(patterns, options) {
 
 
 
